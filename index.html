@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Mega Safe | Quotation & Invoice Workspace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">MS</div>
+        <div><strong>MEGA SAFE</strong><small>BUSINESS WORKSPACE</small></div>
+      </div>
+      <div class="company-pill"><span class="status-dot"></span> Mega Safe Security Services Sdn Bhd</div>
+      <nav class="nav-menu" aria-label="Menu utama">
+        <button class="nav-item active" data-view="dashboard"><span>▦</span> Dashboard</button>
+        <button class="nav-item" data-view="document"><span>＋</span> Quotation / Invoice</button>
+        <button class="nav-item" data-view="records"><span>▤</span> Rekod Dokumen</button>
+        <button class="nav-item" data-view="catalog"><span>▣</span> Katalog Stationery</button>
+        <button class="nav-item" data-view="aisearch"><span>⌕</span> AI Smart Search</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="mini-label">PEMILIK / OWNER</div><strong>Adven Joe</strong><small><a href="tel:+60143562470">+60 14-356 2470</a></small><div class="mini-label" style="margin-top:14px">WORKSPACE VERSION</div><strong>Vanilla HTML · CSS · JS</strong><small>Data disimpan dalam browser ini</small></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">☰</button>
+        <div><div class="eyebrow">MEGA SAFE / BUSINESS TOOLS · V2</div><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="topbar-actions"><span class="today-label" id="todayLabel"></span><button class="btn btn-primary" id="newDocTop">＋ Dokumen Baharu</button></div>
+      </header>
+
+      <section class="view active" id="view-dashboard">
+        <div class="welcome-panel"><div><span class="welcome-kicker">SELAMAT DATANG</span><h2>Urus dokumen dengan lebih kemas.</h2><p>Bina quotation, invoice, simpan rekod dan rujuk katalog barang dalam satu ruang kerja.</p><button class="btn btn-light" data-goto="document">Cipta dokumen pertama <span>→</span></button></div><div class="welcome-art"><div class="art-shield">✓</div><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div></div></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon gold">▤</div><div><span>Jumlah dokumen</span><strong id="statTotal">0</strong><small>Quotation + invoice</small></div></article>
+          <article class="stat-card"><div class="stat-icon blue">◷</div><div><span>Quotation</span><strong id="statQuote">0</strong><small>Rekod sebut harga</small></div></article>
+          <article class="stat-card"><div class="stat-icon green">✓</div><div><span>Invoice</span><strong id="statInvoice">0</strong><small>Rekod invois</small></div></article>
+          <article class="stat-card"><div class="stat-icon purple">▣</div><div><span>Item katalog</span><strong id="statCatalog">0</strong><small>Barang rujukan</small></div></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel recent-panel"><div class="panel-heading"><div><h3>Dokumen terkini</h3><p>Rekod yang disimpan dalam workspace ini</p></div><button class="text-button" data-goto="records">Lihat semua →</button></div><div id="recentDocuments" class="recent-list"><div class="empty-state">Belum ada dokumen. Cipta quotation atau invoice untuk bermula.</div></div></section>
+          <section class="panel quick-panel"><div class="panel-heading"><div><h3>Akses pantas</h3><p>Pilih tindakan yang diperlukan</p></div></div><button class="quick-action" data-goto="document"><span class="quick-icon gold">＋</span><span><strong>Bina quotation / invoice</strong><small>Tambah pelanggan dan item</small></span><span class="chevron">→</span></button><button class="quick-action" data-goto="catalog"><span class="quick-icon blue">▣</span><span><strong>Buka katalog stationery</strong><small>Semak barang dan harga</small></span><span class="chevron">→</span></button><button class="quick-action" data-goto="aisearch"><span class="quick-icon purple">⌕</span><span><strong>Cari rekod dengan pantas</strong><small>Taip nama, tarikh atau nombor</small></span><span class="chevron">→</span></button><div class="note-box"><strong>Tip simpanan</strong><p>Rekod disimpan pada browser/peranti yang digunakan. Buat eksport berkala sebagai salinan sandaran.</p></div></section>
+        </div>
+      </section>
+
+      <section class="view" id="view-document">
+        <div class="section-intro"><div><h2>Penyedia dokumen</h2><p>Lengkapkan butiran di bawah, kemudian simpan, cetak atau eksport.</p></div><div class="doc-type-switch"><button class="type-btn active" data-doctype="Quotation">Quotation Bill</button><button class="type-btn" data-doctype="Invoice">Invoice Bill</button></div></div>
+        <form id="documentForm" class="document-layout">
+          <div class="form-column">
+            <section class="panel form-panel"><div class="panel-heading"><div><h3>Maklumat dokumen</h3><p>Maklumat asas untuk rujukan dan carian</p></div><span class="step-number">01</span></div>
+              <div class="form-grid two-col"><label>Jenis dokumen<select id="docType"><option>Quotation</option><option>Invoice</option></select></label><label>Nombor dokumen<input id="docNumber" required placeholder="QT-2026-001"></label><label>Tarikh dokumen<input id="docDate" type="date" required></label><label>Tarikh tamat / perlu bayar<input id="dueDate" type="date"></label><label>Status<select id="docStatus"><option>Draft</option><option>Sent</option><option>Approved</option><option>Paid</option><option>Overdue</option><option>Cancelled</option></select></label><label>Rujukan / PO No.<input id="docReference" placeholder="Pilihan"></label></div>
+            </section>
+            <section class="panel form-panel"><div class="panel-heading"><div><h3>Maklumat pelanggan</h3><p>Nama dan cara menghubungi pelanggan</p></div><span class="step-number">02</span></div>
+              <div class="form-grid two-col"><label>Nama pelanggan / syarikat<input id="clientName" required placeholder="Nama pelanggan atau syarikat"></label><label>No. telefon<input id="clientPhone" placeholder="+60..."></label><label class="full-width">Alamat pelanggan<textarea id="clientAddress" rows="2" placeholder="Alamat penuh"></textarea></label><label>Email pelanggan<input id="clientEmail" type="email" placeholder="nama@email.com"></label><label>Disediakan oleh<input id="preparedBy" placeholder="Nama pegawai" value="Adven Joe"></label></div>
+            </section>
+            <section class="panel form-panel"><div class="panel-heading"><div><h3>Senarai item</h3><p>Tambah barang atau perkhidmatan serta kuantiti</p></div><span class="step-number">03</span></div>
+              <div class="table-wrap"><table class="items-table"><thead><tr><th style="width:42%">Penerangan item</th><th>Kuantiti</th><th>Harga seunit (RM)</th><th>Jumlah (RM)</th><th></th></tr></thead><tbody id="itemsBody"></tbody></table></div>
+              <div class="item-tools"><button type="button" class="btn btn-outline btn-small" id="addItem">＋ Tambah item</button><button type="button" class="text-button" id="addFromCatalog">Pilih daripada katalog</button></div>
+              <div class="totals-grid"><div class="totals-note"><label>Nota / terma pembayaran<textarea id="docNotes" rows="3" placeholder="Contoh: Harga sah selama 30 hari. Terima kasih atas sokongan anda."></textarea></label><label class="upload-label">Logo syarikat (pilihan)<input id="companyLogo" type="file" accept="image/*"><small>Logo hanya digunakan pada pratonton/cetakan semasa ini.</small></label></div><div class="totals-box"><label>Diskaun (RM)<input id="discount" type="number" min="0" step="0.01" value="0"></label><label>Cukai / SST (%)<input id="taxRate" type="number" min="0" step="0.01" value="0"></label><div class="total-line"><span>Subtotal</span><strong id="subtotalValue">RM 0.00</strong></div><div class="total-line"><span>Diskaun</span><strong id="discountValue">− RM 0.00</strong></div><div class="total-line"><span>Cukai</span><strong id="taxValue">RM 0.00</strong></div><div class="total-line grand-total"><span>Jumlah akhir</span><strong id="grandTotalValue">RM 0.00</strong></div></div></div>
+            </section>
+            <div class="form-actions"><button type="button" class="btn btn-outline" id="resetForm">Kosongkan borang</button><div><button type="button" class="btn btn-outline" id="exportWord">Eksport Word</button><button type="button" class="btn btn-outline" id="exportExcel">Eksport Excel (CSV)</button><button type="button" class="btn btn-primary" id="saveDocument">Simpan dokumen</button></div></div>
+          </div>
+          <aside class="preview-column"><section class="panel preview-panel"><div class="panel-heading"><div><h3>Pratonton dokumen</h3><p>Susun atur ringkas untuk cetakan</p></div><span class="preview-live"><i></i> Live</span></div><div id="documentPreview" class="paper-preview"></div><button type="button" class="btn btn-primary btn-block" id="printDocument">▣ Cetak / Simpan PDF</button><p class="small-muted">Pilih “Save as PDF” pada destinasi pencetak untuk menyimpan sebagai PDF.</p></section></aside>
+        </form>
+      </section>
+
+      <section class="view" id="view-records">
+        <div class="section-intro"><div><h2>Rekod dokumen</h2><p>Susun mengikut tarikh dan cari dokumen yang pernah disimpan.</p></div><button class="btn btn-primary" data-goto="document">＋ Dokumen Baharu</button></div>
+        <section class="panel"><div class="toolbar"><div class="search-field"><span>⌕</span><input id="recordsSearch" placeholder="Cari nombor, pelanggan atau rujukan..."></div><select id="recordsType"><option value="all">Semua jenis</option><option value="Quotation">Quotation</option><option value="Invoice">Invoice</option></select><select id="recordsStatus"><option value="all">Semua status</option><option>Draft</option><option>Sent</option><option>Approved</option><option>Paid</option><option>Overdue</option><option>Cancelled</option></select><select id="recordsSort"><option value="newest">Tarikh terkini</option><option value="oldest">Tarikh terlama</option><option value="amount-high">Jumlah tertinggi</option><option value="amount-low">Jumlah terendah</option></select></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Tarikh</th><th>No. dokumen</th><th>Jenis</th><th>Pelanggan</th><th>Status</th><th>Jumlah (RM)</th><th>Tindakan</th></tr></thead><tbody id="recordsBody"></tbody></table></div><div class="table-footer"><span id="recordsCount">0 dokumen</span><button class="text-button" id="backupRecords">Eksport semua rekod (CSV) ↓</button></div></section>
+      </section>
+
+      <section class="view" id="view-catalog">
+        <div class="section-intro"><div><h2>Katalog stationery</h2><p>200 item rujukan dengan ilustrasi produk, harga anggaran dan SKU. Edit harga mengikut pembekal anda.</p></div><div class="catalog-head-actions"><button class="btn btn-outline" id="seedCatalog">＋ Tambah 200 item rujukan</button><button class="btn btn-primary" id="newCatalogItem">＋ Tambah barang</button></div></div>
+        <section class="panel catalog-toolbar"><div class="search-field"><span>⌕</span><input id="catalogSearch" placeholder="Cari nama barang, SKU atau kategori..."></div><select id="catalogCategory"><option value="all">Semua kategori</option><option>Alat tulis</option><option>Kertas & percetakan</option><option>Fail & simpanan</option><option>Peralatan pejabat</option><option>Elektronik</option><option>Kebersihan & pantry</option><option>Lain-lain</option></select><button class="btn btn-outline" id="exportCatalog">Eksport katalog (CSV)</button><span id="catalogCount" class="catalog-count">200 item</span></section>
+        <div id="catalogGrid" class="catalog-grid"></div>
+        <div class="catalog-tip"><span>✦</span><div><strong>Tambah gambar barang</strong><p>Anda boleh memuat naik gambar produk sendiri. Untuk gambar AI, jana imej produk dengan alat imej dan simpan ke komputer sebelum memuat naik di sini.</p></div></div>
+      </section>
+
+      <section class="view" id="view-aisearch">
+        <div class="ai-hero"><div class="ai-symbol">✧</div><div><span class="welcome-kicker">SMART SEARCH</span><h2>Apakah yang anda mahu cari?</h2><p>Taip dalam bahasa biasa. Carian akan semak rekod dokumen dan katalog yang tersimpan pada browser ini.</p></div></div>
+        <section class="panel ai-search-panel"><div class="ai-input-wrap"><span>✧</span><input id="aiQuery" placeholder="Contoh: invoice bulan Oktober, quotation untuk ABC, kertas A4..." autocomplete="off"><button class="btn btn-primary" id="runAiSearch">Cari sekarang</button></div><div class="suggestion-row"><span>Contoh carian:</span><button class="suggestion" data-query="invoice bulan ini">invoice bulan ini</button><button class="suggestion" data-query="quotation status sent">quotation status sent</button><button class="suggestion" data-query="stationery kertas A4">stationery kertas A4</button></div></section>
+        <section class="search-results-area"><div class="panel-heading"><div><h3>Hasil carian</h3><p id="searchSummary">Hasil carian akan dipaparkan di sini.</p></div></div><div id="aiResults" class="ai-results"><div class="empty-state">Masukkan kata kunci untuk mencari rekod.</div></div></section>
+        <p class="ai-disclaimer">Nota: Ini ialah carian pintar berasaskan kata kunci dalam browser, bukan sambungan kepada model AI dalam talian. Data anda tidak dihantar ke pelayan melalui fungsi carian ini.</p>
+      </section>
+      <footer class="app-footer"><span>© <span id="yearNow"></span> Mega Safe Security Services Sdn Bhd</span><span>Pemilik: Adven Joe · <a href="tel:+60143562470">+60 14-356 2470</a></span><span>Workspace peribadi · HTML / CSS / JavaScript Vanilla</span></footer>
+    </main>
+  </div>
+
+  <dialog id="catalogDialog" class="modal"><form method="dialog" id="catalogForm"><div class="modal-heading"><div><span class="eyebrow">KATALOG PRODUK</span><h2 id="catalogDialogTitle">Tambah barang</h2></div><button type="button" class="close-button" id="closeCatalogDialog">×</button></div><input type="hidden" id="catalogItemId"><div class="form-grid two-col"><label>Nama barang<input id="catalogName" required placeholder="Contoh: Kertas A4 80gsm"></label><label>SKU / kod barang<input id="catalogSku" placeholder="PPR-A4-80"></label><label>Kategori<select id="catalogItemCategory"><option>Alat tulis</option><option>Kertas & percetakan</option><option>Fail & simpanan</option><option>Peralatan pejabat</option><option>Elektronik</option><option>Kebersihan & pantry</option><option>Lain-lain</option></select></label><label>Harga rujukan (RM)<input id="catalogPrice" type="number" min="0" step="0.01" required placeholder="0.00"></label><label>Unit jualan<input id="catalogUnit" placeholder="rim / kotak / unit"></label><label>Stok (pilihan)<input id="catalogStock" type="number" min="0" step="1" placeholder="0"></label><label class="full-width">Nota ringkas<textarea id="catalogDescription" rows="2" placeholder="Jenama, saiz, spesifikasi..."></textarea></label><label class="full-width">Gambar barang<input id="catalogImage" type="file" accept="image/*"><small>Gambar disimpan secara setempat dalam browser.</small></label></div><div class="modal-actions"><button type="button" class="btn btn-outline" id="cancelCatalog">Batal</button><button type="submit" class="btn btn-primary">Simpan barang</button></div></form></dialog>
+  <dialog id="catalogPicker" class="modal picker-modal"><div class="modal-heading"><div><span class="eyebrow">TAMBAH ITEM</span><h2>Pilih daripada katalog</h2></div><button type="button" class="close-button" id="closePicker">×</button></div><div class="search-field picker-search"><span>⌕</span><input id="pickerSearch" placeholder="Cari barang..."></div><div id="pickerItems" class="picker-items"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
