@@ -26,3 +26,41 @@ body{background:#f4f6fa}
 .catalog-price{color:#987018}
 .paper-brand{color:#a77b1e}
 @media(max-width:650px){.catalog-head-actions{width:100%}.catalog-head-actions .btn{flex:1}.catalog-count{width:100%;margin:0}.catalog-image{height:118px}}
+
+
+/* Company identity and compact, print-ready quotation/invoice */
+.paper-company{font-size:8px;line-height:1.45;color:#4b5563}
+.paper-company strong{color:#18212f}
+.paper-footer{color:#687386;font-size:7px}
+.paper-preview{overflow-wrap:anywhere}
+@media print{
+  html,body{width:100%;height:auto;background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:Arial,Helvetica,sans-serif}
+  .main-area{width:100%;margin:0!important;padding:0!important}
+  .view#view-document{margin:0!important;padding:0!important}
+  .document-layout,.preview-column,.preview-panel{display:block!important;width:100%!important;margin:0!important;padding:0!important}
+  .paper-preview{width:100%!important;max-width:none!important;min-height:0!important;padding:0!important;border:0!important;box-shadow:none!important;color:#111827!important}
+  .paper-header{margin-bottom:8mm;padding-bottom:4mm;border-bottom:1.5pt solid #b88a22;break-after:avoid}
+  .paper-brand{font-size:15pt!important;color:#18212f!important}
+  .paper-title{font-size:18pt!important}
+  .paper-title small{font-size:8pt!important}
+  .paper-company{font-size:8.5pt!important;line-height:1.4!important;margin-bottom:5mm}
+  .paper-section-title{font-size:8pt!important;margin-bottom:2mm}
+  .paper-client{font-size:9pt!important;line-height:1.45!important;margin-bottom:5mm}
+  .paper-meta{grid-template-columns:repeat(4,minmax(0,1fr));gap:3mm;font-size:8pt!important;margin-bottom:5mm}
+  .paper-preview table{font-size:8.5pt!important;table-layout:fixed}
+  .paper-preview th{font-size:8pt!important;background:#f1f3f6!important;color:#1f2937!important}
+  .paper-preview th,.paper-preview td{padding:2.2mm 1.8mm!important;overflow-wrap:anywhere}
+  .paper-preview th:nth-child(1){width:7%}
+  .paper-preview th:nth-child(2){width:43%}
+  .paper-preview th:nth-child(3){width:12%}
+  .paper-preview th:nth-child(4){width:18%}
+  .paper-preview th:nth-child(5){width:20%}
+  .paper-preview tr{break-inside:avoid}
+  .paper-preview .paper-totals{width:55%;margin-top:5mm;font-size:9pt!important;break-inside:avoid}
+  .paper-preview .paper-totals td{padding:1.5mm!important}
+  .paper-preview .paper-grand td{font-size:10pt!important;border-top:1pt solid #9ca3af}
+  .paper-notes{font-size:8pt!important;line-height:1.45!important;margin-top:5mm;break-inside:avoid}
+  .paper-footer{font-size:8pt!important;margin-top:8mm;padding-top:3mm;color:#4b5563!important;break-inside:avoid}
+  @page{size:A4;margin:12mm}
+}
