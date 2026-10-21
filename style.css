@@ -64,3 +64,22 @@ body{background:#f4f6fa}
   .paper-footer{font-size:8pt!important;margin-top:8mm;padding-top:3mm;color:#4b5563!important;break-inside:avoid}
   @page{size:A4;margin:12mm}
 }
+
+/* Signature blocks in quotation/invoice preview */
+.signature-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;break-inside:avoid;page-break-inside:avoid;color:#263143;font-size:8px}
+.signature-box{min-width:0}
+.signature-box strong{display:block;font-size:8px}
+.signature-space{height:48px}
+.signature-box span{display:block;border-top:1px solid #7b8492;padding-top:5px;color:#687386;font-size:7px}
+@media print{
+ body *{visibility:hidden}
+ #view-document,#view-document *{visibility:visible}
+ #view-document{position:absolute!important;left:0;top:0;width:100%!important}
+ #view-document .section-intro,#view-document .form-column,#view-document .preview-panel>.panel-heading,#view-document .btn-block,#view-document .small-muted{display:none!important}
+ #view-document .document-layout,#view-document .preview-column,#view-document .preview-panel{display:block!important}
+ .signature-row{margin-top:12mm;font-size:9pt!important;gap:20mm}
+ .signature-box strong{font-size:9pt!important}
+ .signature-space{height:22mm}
+ .signature-box span{font-size:8pt!important}
+}
+@media(max-width:520px){.signature-row{gap:12px}.signature-box strong{font-size:7px}}
